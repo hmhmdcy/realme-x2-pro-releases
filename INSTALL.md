@@ -23,6 +23,17 @@ sha256sum logdump-touch-gpi.img
 # 125436109e7bb950bf608610ffc3dca656638764e695f52eda843eaf16d70dbb
 ```
 
+GitHub-blocked networks can fetch the same asset through:
+
+```sh
+curl -fL \
+  "https://ghfast.top/https://github.com/hmhmdcy/realme-x2-pro-releases/releases/latest/download/logdump-touch-gpi.img" \
+  -o logdump-touch-gpi.img
+```
+
+Verify the hash after any mirror download; a mirror is not allowed to
+change package or image bytes.
+
 Use the Linux-side helper from the project:
 
 ```sh

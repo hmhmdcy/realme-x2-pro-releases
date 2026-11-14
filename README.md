@@ -27,6 +27,21 @@ I2C/GPI DMA failure recoverable.  Ten actual warm reboots passed with
 new boot IDs and zero `EV ALLOCATE` / `alloc_ev_chan` /
 `Failed to get rx DMA` errors.
 
+Canonical downloads:
+
+```text
+https://github.com/hmhmdcy/realme-x2-pro-releases/releases/latest/download/
+```
+
+GitHub-blocked mirror:
+
+```text
+https://ghfast.top/https://github.com/hmhmdcy/realme-x2-pro-releases/releases/latest/download/
+```
+
+The mirror only changes transport.  Always verify `SHA256SUMS`; the
+release hashes in this repository are the trust boundary.
+
 ## Documents
 
 - [INSTALL.md](INSTALL.md) - update an existing install or flash
