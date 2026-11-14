@@ -52,6 +52,7 @@ release hashes in this repository are the trust boundary.
 - [SUPPORT.md](SUPPORT.md) - read-only support information
 - [SECURITY.md](SECURITY.md) - clean-image and secret-handling rules
 - [samurai-identify.sh](samurai-identify.sh) - collect a support bundle
+- [RELEASING.md](RELEASING.md) - maintainer release checklist
 
 ## Package updates
 
