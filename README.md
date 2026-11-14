@@ -46,6 +46,7 @@ release hashes in this repository are the trust boundary.
 
 - [INSTALL.md](INSTALL.md) - update an existing install or flash
   boot/logdump for a new install
+- [MIGRATION.md](MIGRATION.md) - migrate an already-flashed device
 - [RECOVERY.md](RECOVERY.md) - rollback pair and recovery boundaries
 - [COMPATIBILITY.md](COMPATIBILITY.md) - tested and untested hardware
 - [SUPPORT.md](SUPPORT.md) - read-only support information
