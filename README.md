@@ -49,6 +49,7 @@ release hashes in this repository are the trust boundary.
 - [RECOVERY.md](RECOVERY.md) - rollback pair and recovery boundaries
 - [COMPATIBILITY.md](COMPATIBILITY.md) - tested and untested hardware
 - [SUPPORT.md](SUPPORT.md) - read-only support information
+- [SECURITY.md](SECURITY.md) - clean-image and secret-handling rules
 - [samurai-identify.sh](samurai-identify.sh) - collect a support bundle
 
 ## Package updates
