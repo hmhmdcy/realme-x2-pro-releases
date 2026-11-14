@@ -3,9 +3,11 @@
 User-facing boot, kernel, DTB and recovery releases for the Realme
 X2 Pro (RMX1931 / RMX1931CN, codename `samurai`).
 
-This repository does not contain a rootfs image and does not distribute
-vendor firmware, calibration, NV, persist or userdata.  A complete
-installation still needs a separately prepared rootfs.
+This repository does not contain a ready-made rootfs image and does
+not distribute vendor firmware, calibration, NV, persist or userdata.
+The editable rootfs recipes and a clean `pmbootstrap` path are in
+`hmhmdcy/realme-x2-pro-pmaports` (`samurai/README.md`); a prebuilt
+rootfs is deliberately not published.
 
 ## Current release
 
@@ -17,6 +19,8 @@ installation still needs a separately prepared rootfs.
   `29c8d27c64b9f3bb11bbf6b94bcd211e88aa3ad4a8d31955b37b54d622d8a739`
 - kernel FAT (`logdump`):
   `125436109e7bb950bf608610ffc3dca656638764e695f52eda843eaf16d70dbb`
+- matching modules archive (772 compressed modules):
+  `5045c16b46928bc6ff9fbeb0418a21e34c12356954694665634c587006e19a02`
 - boot carrier:
   `4520915183bbdf91bf606c1f2c711097a7a686c5e4666298e8bd1665a44036f1`
 - DTB: `9ca1d2f9b170ebc4913d8dd0ea16442bef0556b76f9d18b3d0393870d1167162`
@@ -47,6 +51,9 @@ release hashes in this repository are the trust boundary.
 - [INSTALL.md](INSTALL.md) - update an existing install or flash
   boot/logdump for a new install
 - [MIGRATION.md](MIGRATION.md) - migrate an already-flashed device
+- [ROOTFS.md](ROOTFS.md) - build a clean rootfs, understand why no
+  prebuilt binary rootfs is published, and pair modules with the
+  kernel
 - [RECOVERY.md](RECOVERY.md) - rollback pair and recovery boundaries
 - [COMPATIBILITY.md](COMPATIBILITY.md) - tested and untested hardware
 - [SUPPORT.md](SUPPORT.md) - read-only support information
@@ -64,6 +71,12 @@ https://github.com/hmhmdcy/realme-x2-pro-apk
 
 The APK repository does not update the kernel, boot carrier or DTB.
 Those are system releases in this repository.
+
+The kernel and modules are a pair.  `logdump` contains only `Image` and
+the DTB (not `/lib/modules`).  `/lib/modules/<release>` is filesystem
+data and must be installed from the matching modules archive.  Do not
+mix a kernel from this release with modules from an earlier build,
+even when the `uname -r` string looks similar.
 
 ## Source
 

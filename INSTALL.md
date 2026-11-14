@@ -49,8 +49,22 @@ it back, and only then requests reboot.
 
 ## New installation: boot + logdump
 
-This repository does not provide a rootfs.  Prepare a compatible
-rootfs separately, then flash the boot carrier and kernel FAT.
+This repository does not provide a ready-made rootfs.  See
+[ROOTFS.md](ROOTFS.md) for the clean build path and the reasons a
+maintainer's live system must not be redistributed.  Prepare a
+compatible rootfs first, then flash the boot carrier and kernel FAT.
+
+The matching modules archive is a separate release asset:
+
+```text
+modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz
+SHA-256 5045c16b46928bc6ff9fbeb0418a21e34c12356954694665634c587006e19a02
+```
+
+It contains 772 modules and its extracted tree starts with
+`7.3.1-rmx1931-samurai-v731-usbwake-otg/`.  Install it into
+`/lib/modules/` before the first boot with this kernel, or the
+rootfs may boot without Wi-Fi, Bluetooth, camera and other modules.
 
 With fastboot:
 
@@ -74,6 +88,27 @@ If the existing rootfs has modules from another release, install the
 matching module tree before rebooting, or the affected modules will not
 load.
 
+Verify the module archive before extraction:
+
+```sh
+sha256sum modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz
+tar -tzf modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz | head
+```
+
+Extract it with the leading release directory, then regenerate the
+dependency cache on the device:
+
+```sh
+tar -xzf modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz \
+  -C /lib/modules
+depmod -a 7.3.1-rmx1931-samurai-v731-usbwake-otg
+modprobe -n -v bnep uhid uinput
+```
+
+The last command only checks module resolution; it does not prove the
+hardware works.  If `depmod` reports unresolved dependencies, stop and
+reinstall the matching archive rather than mixing module trees.
+
 ## Verify after boot
 
 ```sh
@@ -91,6 +126,8 @@ by itself evidence of this update failing.
 ## What this release does not do
 
 - It does not replace a rootfs.
+- It does not contain the modules archive inside `logdump`; install the
+  matching archive separately.
 - It does not update userspace packages; use the APK repository.
 - It does not fix suspend/deep-sleep or OTG physical host acceptance.
 - It does not validate 6/12 GiB or 64/128/256 GB SKUs.

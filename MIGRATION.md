@@ -37,7 +37,29 @@ explicit versions.  Do not run an unbounded `apk upgrade` on a pinned
 daily-use device; official edge repositories may pull hundreds of
 unrelated updates.
 
-## 4. Personal data
+The APK repository contains userspace packages only.  It cannot install
+or replace the kernel; that remains a system release operation.  If
+the existing installation has a `samurai-*` package whose version
+predates the current release, update it explicitly and check that the
+kernel release still matches `/lib/modules`.
+
+## 4. Modules and kernel pairing
+
+The `logdump` image contains the kernel `Image` and DTB, not modules.
+Install the archive named in the release before rebooting:
+
+```sh
+sha256sum modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz
+tar -xzf modules-7.3.1-rmx1931-samurai-v731-usbwake-otg.tar.gz \
+  -C /lib/modules
+depmod -a 7.3.1-rmx1931-samurai-v731-usbwake-otg
+```
+
+Do not extract a module archive into a different release directory and
+then rename it.  The vermagic in each module must match `uname -r`
+exactly.
+
+## 5. Personal data
 
 If the earlier image was a copy of the maintainer's live system, treat
 its SSH host keys, Wi-Fi credentials and user data as exposed.  Rebuild

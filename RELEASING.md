@@ -17,5 +17,6 @@
    `samurai-identify.sh`.
 6. Do not attach a rootfs, userdata, calibration, NV or persist image
    unless it has been built from a clean generic source and audited.
+   A maintainer's live rootfs is never an acceptable generic source.
 7. Test a range download through both the canonical GitHub URL and the
    `ghfast.top` mirror, then test one real update on a non-daily device.

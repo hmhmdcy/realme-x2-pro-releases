@@ -12,6 +12,8 @@ Attach `samurai-support.txt` to a report.  It contains:
 - boot ID;
 - boot and logdump hashes;
 - installed `samurai-*`, `usb-signaller` and `unudhcpd` versions;
+- whether `/lib/modules/$(uname -r)` exists and how many `.ko` files
+  it contains;
 - whether the touch input device is present.
 
 Do not attach:
