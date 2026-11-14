@@ -1,0 +1,48 @@
+{
+  "schema": "samurai-system-release-v1",
+  "release": "v2026.11.14-kernel8",
+  "generated": "2026-11-14",
+  "device": {
+    "soc": "SM8150-AC",
+    "model_ids": [
+      "RMX1931",
+      "RMX1931CN"
+    ],
+    "codename": "samurai",
+    "model": "Realme X2 Pro"
+  },
+  "kernel": {
+    "image_sha256": "29c8d27c64b9f3bb11bbf6b94bcd211e88aa3ad4a8d31955b37b54d622d8a739",
+    "build": "#8 Sat Nov 14 09:46:41 CST 2026",
+    "image_bytes": 59591168,
+    "release": "7.3.1-rmx1931-samurai-v731-usbwake-otg"
+  },
+  "artifacts": {
+    "boot_sha256": "4520915183bbdf91bf606c1f2c711097a7a686c5e4666298e8bd1665a44036f1",
+    "rootfs": "not included",
+    "boot_bytes": 100663296,
+    "logdump_sha256": "125436109e7bb950bf608610ffc3dca656638764e695f52eda843eaf16d70dbb",
+    "logdump_bytes": 67108864,
+    "dtb_sha256": "9ca1d2f9b170ebc4913d8dd0ea16442bef0556b76f9d18b3d0393870d1167162"
+  },
+  "apk_repository": {
+    "index_sha256": "824c6bdd62d99e440ead4d882737d91f6fe6c928714a46d243d26fb4685c26f5",
+    "index_file": "packages.adb",
+    "url": "https://github.com/hmhmdcy/realme-x2-pro-apk"
+  },
+  "validation": {
+    "taint": 512,
+    "warm_reboot_pass": 10,
+    "long_term": "not tested",
+    "external_power_cold_boot": "not tested",
+    "gpi_alloc_errors": 0,
+    "touch_device": "Synaptics S3706A",
+    "warm_reboot_rounds": 10
+  },
+  "remaining": [
+    "external-power-removed cold boot",
+    "long-term stability",
+    "edge/orientation/multi-touch after sleep",
+    "6/12 GiB and 64/128/256 GB SKU validation"
+  ]
+}

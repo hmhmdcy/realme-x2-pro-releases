@@ -1,0 +1,4 @@
+# Binary release assets are attached to GitHub Releases.
+*.img
+*.apk
+*.bin
